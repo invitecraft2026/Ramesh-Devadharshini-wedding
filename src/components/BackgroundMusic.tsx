@@ -8,7 +8,7 @@ const BackgroundMusic = () => {
 
   useEffect(() => {
     const audio = new Audio(
-      "/Niyum njanum.mpeg"
+      "/kanne kaniye.mpeg"
     );
     audio.loop = true;
     audio.volume = 0.2;

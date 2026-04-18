@@ -32,24 +32,24 @@ const GallerySection = () => {
         </div>
 
         {/* ✅ Gallery Grid */}
-        <div className="grid grid-cols-2 gap-4">
-          {photos.map((photo, i) => (
-            <motion.div
-              key={photo.id}
-              className="invitation-card rounded-2xl aspect-square overflow-hidden"
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-            >
-              <img
-                src={photo.src}
-                alt={photo.label}
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-          ))}
-        </div>
+       <div className="grid grid-cols-2 gap-4">
+  {photos.map((photo, i) => (
+    <motion.div
+      key={photo.id}
+      className="invitation-card rounded-2xl overflow-hidden aspect-[1080/1417]"
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{ delay: i * 0.15 }}
+    >
+      <img
+        src={photo.src}
+        alt={photo.label}
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
+  ))}
+</div>
 
         <p className="text-xs text-muted-foreground mt-4 italic">
           Our beautiful memories together ❤️

@@ -28,7 +28,7 @@ const ScratchCard = () => {
     ctx.textAlign = "center";
     ctx.fillText("✨ Scratch to Reveal ✨", canvas.offsetWidth / 2, canvas.offsetHeight / 2 - 8);
     ctx.font = "400 13px 'Poppins', sans-serif";
-    ctx.fillText("the Wedding Date", canvas.offsetWidth / 2, canvas.offsetHeight / 2 + 16);
+    ctx.fillText("the Reception Date", canvas.offsetWidth / 2, canvas.offsetHeight / 2 + 16);
   }, []);
 
   useEffect(() => {
@@ -67,13 +67,14 @@ const ScratchCard = () => {
   };
 
   const groom = "Ramesh";
-const bride = "Devadharshini";
+  const bride = "Devadharshini";
 
-const calendarLink = `https://www.google.com/calendar/render?action=TEMPLATE
-&text=${groom}+%26+${bride}+Wedding
-&dates=20260525T053000/20260525T060000
-&details=You+are+invited+to+celebrate+the+wedding+of+${groom}+%26+${bride}
-&location=Kumarankundru+Temple,+Coimbatore`.replace(/\s/g, "");
+  // ✅ Updated Calendar Link (Reception)
+  const calendarLink = `https://www.google.com/calendar/render?action=TEMPLATE
+&text=${groom}+%26+${bride}+Reception
+&dates=20260524T180000/20260524T210000
+&details=Join+us+for+the+Wedding+Reception+of+${groom}+%26+${bride}
+&location=Muthu+Mahal,+Irumborai,+Coimbatore`.replace(/\s/g, "");
 
   return (
     <section className="py-16 px-4">
@@ -85,7 +86,7 @@ const calendarLink = `https://www.google.com/calendar/render?action=TEMPLATE
         transition={{ duration: 0.8 }}
       >
         <h2 className="font-heading text-3xl text-foreground mb-6">
-          Reveal the Date
+          Reveal the Reception
         </h2>
 
         <div className="relative invitation-card rounded-2xl overflow-hidden mx-auto" style={{ height: 200 }}>
@@ -97,18 +98,18 @@ const calendarLink = `https://www.google.com/calendar/render?action=TEMPLATE
             </p>
 
             <p className="font-heading text-2xl font-bold text-foreground">
-              May 25, 2026
+              May 24, 2026
             </p>
 
             <p className="text-muted-foreground mt-1">
-              5:30 AM – 6:00 AM
+              6:00 PM – 9:00 PM
             </p>
 
             <p className="text-muted-foreground text-sm mt-1">
-              Kumarankundru Temple, Coimbatore
+              Muthu Mahal, Irumborai, Coimbatore
             </p>
 
-            {/* ✅ Add to Calendar Button */}
+            {/* Add to Calendar Button */}
             {isRevealed && (
               <a
                 href={calendarLink}
@@ -116,7 +117,7 @@ const calendarLink = `https://www.google.com/calendar/render?action=TEMPLATE
                 rel="noopener noreferrer"
                 className="mt-4 inline-block px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition"
               >
-                Add to Calendar 📅
+                Add Reception to Calendar 📅
               </a>
             )}
           </div>
