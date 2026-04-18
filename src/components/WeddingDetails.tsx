@@ -3,18 +3,25 @@ import { Calendar, Clock, MapPin, Sparkles } from "lucide-react";
 
 const events = [
   {
-    title: "Muhurtham",
-    date: "December 15, 2025",
-    time: "9:00 AM - 10:30 AM",
-    venue: "Guruvayur Sri Krishna Temple",
+    title: "Haldi & Mehendi",
+    date: "May 23, 2026",
+    time: "—",
+    venue: "Bride's House",
     icon: Sparkles,
   },
   {
     title: "Wedding Reception",
-    date: "December 15, 2025",
-    time: "6:00 PM - 10:00 PM",
-    venue: "Lakshmi Nivas Convention Centre, Thrissur",
+    date: "May 24, 2026",
+    time: "6:00 PM - 9:00 PM",
+    venue: "Muthu Mahal, Irumborai, Coimbatore",
     icon: Calendar,
+  },
+  {
+    title: "Muhurtham",
+    date: "May 25, 2026",
+    time: "5:30 AM - 6:00 AM",
+    venue: "Kumarankundru Temple, Coimbatore",
+    icon: Sparkles,
   },
 ];
 
@@ -55,15 +62,18 @@ const WeddingDetails = () => {
                   {event.title}
                 </h3>
               </div>
+
               <div className="space-y-2 text-sm text-muted-foreground ml-13">
                 <div className="flex items-center gap-2">
                   <Calendar className="w-4 h-4 text-primary" />
                   <span>{event.date}</span>
                 </div>
+
                 <div className="flex items-center gap-2">
                   <Clock className="w-4 h-4 text-primary" />
                   <span>{event.time}</span>
                 </div>
+
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-primary" />
                   <span>{event.venue}</span>

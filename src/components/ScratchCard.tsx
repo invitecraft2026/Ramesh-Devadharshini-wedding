@@ -16,7 +16,6 @@ const ScratchCard = () => {
     canvas.height = canvas.offsetHeight * 2;
     ctx.scale(2, 2);
 
-    // Gold scratch surface
     const grad = ctx.createLinearGradient(0, 0, canvas.offsetWidth, canvas.offsetHeight);
     grad.addColorStop(0, "#b8860b");
     grad.addColorStop(0.5, "#daa520");
@@ -24,7 +23,6 @@ const ScratchCard = () => {
     ctx.fillStyle = grad;
     ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
 
-    // Text on scratch surface
     ctx.fillStyle = "#fff";
     ctx.font = "600 16px 'Cormorant Garamond', serif";
     ctx.textAlign = "center";
@@ -52,7 +50,6 @@ const ScratchCard = () => {
     ctx.arc(cx, cy, 22, 0, Math.PI * 2);
     ctx.fill();
 
-    // Check reveal percentage
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
     let cleared = 0;
     for (let i = 3; i < imageData.data.length; i += 4) {
@@ -69,6 +66,15 @@ const ScratchCard = () => {
     if (isDrawing.current) scratch(x, y);
   };
 
+  const groom = "Ramesh";
+const bride = "Devadharshini";
+
+const calendarLink = `https://www.google.com/calendar/render?action=TEMPLATE
+&text=${groom}+%26+${bride}+Wedding
+&dates=20260525T053000/20260525T060000
+&details=You+are+invited+to+celebrate+the+wedding+of+${groom}+%26+${bride}
+&location=Kumarankundru+Temple,+Coimbatore`.replace(/\s/g, "");
+
   return (
     <section className="py-16 px-4">
       <motion.div
@@ -83,12 +89,36 @@ const ScratchCard = () => {
         </h2>
 
         <div className="relative invitation-card rounded-2xl overflow-hidden mx-auto" style={{ height: 200 }}>
+          
           {/* Hidden content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center p-6">
-            <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-1">Save the Date</p>
-            <p className="font-heading text-2xl font-bold text-foreground">December 15, 2025</p>
-            <p className="text-muted-foreground mt-1">Monday, 9:00 AM</p>
-            <p className="text-muted-foreground text-sm mt-1">Guruvayur Temple, Kerala</p>
+            <p className="text-sm tracking-[0.2em] uppercase text-muted-foreground mb-1">
+              Save the Date
+            </p>
+
+            <p className="font-heading text-2xl font-bold text-foreground">
+              May 25, 2026
+            </p>
+
+            <p className="text-muted-foreground mt-1">
+              5:30 AM – 6:00 AM
+            </p>
+
+            <p className="text-muted-foreground text-sm mt-1">
+              Kumarankundru Temple, Coimbatore
+            </p>
+
+            {/* ✅ Add to Calendar Button */}
+            {isRevealed && (
+              <a
+                href={calendarLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition"
+              >
+                Add to Calendar 📅
+              </a>
+            )}
           </div>
 
           {/* Scratch canvas */}

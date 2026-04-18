@@ -51,7 +51,7 @@ const Index = () => {
             {/* Footer */}
             <footer className="text-center py-10 px-4">
               <p className="font-display text-2xl gold-text mb-2">
-                Arjun & Meera
+                Ramesh & Devadharshini
               </p>
               <p className="text-xs text-muted-foreground">
                 Made with love 🌸

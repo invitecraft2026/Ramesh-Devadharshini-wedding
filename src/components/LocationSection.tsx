@@ -1,6 +1,24 @@
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
 
+const venues = [
+  {
+    title: "Reception",
+    name: "Muthu Mahal",
+    address: "Irumborai, Coimbatore, Tamil Nadu",
+    time: "May 24, 2026 • 6:00 PM – 9:00 PM",
+    mapLink: "https://maps.google.com/?q=Muthu+Mahal+Irumborai+Coimbatore",
+  },
+  {
+    title: "Wedding Ceremony",
+    name: "Kumarankundru Temple",
+    address: "Coimbatore, Tamil Nadu, India",
+    time: "May 25, 2026 • 5:30 AM – 6:00 AM",
+    mapLink: "https://maps.google.com/?q=Kumarankundru+Temple+Coimbatore",
+  },
+  
+];
+
 const LocationSection = () => {
   return (
     <section className="py-16 px-4">
@@ -12,46 +30,58 @@ const LocationSection = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="font-heading text-3xl sm:text-4xl text-foreground mb-2">
-          Venue
+          Venues
         </h2>
-        <div className="flex items-center justify-center gap-3 mb-6">
+
+        <div className="flex items-center justify-center gap-3 mb-10">
           <div className="h-px w-10 bg-primary/40" />
           <span className="text-primary">✿</span>
           <div className="h-px w-10 bg-primary/40" />
         </div>
 
-        <div className="invitation-card rounded-2xl overflow-hidden">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.024!2d76.0398!3d10.5935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba795e22e5ab3e3%3A0x4e4e4e4e4e4e4e4e!2sGuruvayur%20Temple!5e0!3m2!1sen!2sin!4v1234567890"
-            width="100%"
-            height="250"
-            style={{ border: 0 }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Wedding Venue Location"
-          />
-          <div className="p-5 text-left">
-            <div className="flex items-start gap-3">
-              <MapPin className="w-5 h-5 text-primary mt-0.5 shrink-0" />
-              <div>
-                <p className="font-heading text-lg font-semibold text-foreground">
-                  Guruvayur Sri Krishna Temple
-                </p>
-                <p className="text-sm text-muted-foreground mt-1">
-                  Guruvayur, Thrissur, Kerala 680101
-                </p>
-              </div>
-            </div>
-            <a
-              href="https://maps.google.com/?q=Guruvayur+Temple+Kerala"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block mt-4 text-sm font-medium text-primary hover:underline"
+        {/* ✅ Venue Cards */}
+        <div className="space-y-6">
+          {venues.map((venue, i) => (
+            <motion.div
+              key={venue.title}
+              className="invitation-card rounded-2xl p-6 text-left shadow-md hover:shadow-xl transition"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.2 }}
             >
-              Get Directions →
-            </a>
-          </div>
+              {/* Title */}
+              <p className="text-xs uppercase tracking-widest text-primary mb-2">
+                {venue.title}
+              </p>
+
+              {/* Venue Name */}
+              <h3 className="font-heading text-xl font-semibold text-foreground mb-2">
+                {venue.name}
+              </h3>
+
+              {/* Address */}
+              <div className="flex items-start gap-2 text-muted-foreground text-sm mb-1">
+                <MapPin className="w-4 h-4 mt-0.5" />
+                <span>{venue.address}</span>
+              </div>
+
+              {/* Time */}
+              <p className="text-sm text-muted-foreground mb-4">
+                {venue.time}
+              </p>
+
+              {/* Button */}
+              <a
+                href={venue.mapLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-5 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition"
+              >
+                Get Directions →
+              </a>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

@@ -3,14 +3,8 @@ import { motion } from "framer-motion";
 
 const CountdownTimer = () => {
 
-  function generateRandomDate() {
-    const now = Date.now();
-    const randomDays = Math.floor(Math.random() * 120) + 1; // 1–120 days
-    return new Date(now + randomDays * 24 * 60 * 60 * 1000);
-  }
-
-  const [weddingDate] = useState(generateRandomDate());
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+  // Fixed wedding date (May 25, 2026, 5:30 AM)
+  const weddingDate = new Date("2026-05-25T05:30:00");
 
   function getTimeLeft() {
     const diff = weddingDate.getTime() - Date.now();
@@ -26,6 +20,8 @@ const CountdownTimer = () => {
       seconds: Math.floor((diff / 1000) % 60),
     };
   }
+
+  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
 
   useEffect(() => {
     const timer = setInterval(() => {

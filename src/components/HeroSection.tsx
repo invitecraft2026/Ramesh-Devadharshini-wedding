@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import weddingCouple from "@/assets/wedding-couple.jpeg";
+import weddingCouple from "@/assets/wedding-couple-removebg.png";
 
 const HeroSection = () => {
   return (
@@ -27,12 +27,13 @@ const HeroSection = () => {
         transition={{ duration: 0.8, delay: 0.8 }}
       >
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl text-foreground mb-2">
-          Arjun
+          Ramesh
         </h1>
         <span className="text-secondary text-3xl">❤️</span>
         <h1 className="font-display text-5xl sm:text-6xl md:text-7xl text-foreground mt-2">
-          Meera
+          Devadharshini
         </h1>
+
         <div className="flex items-center justify-center gap-3 mt-6">
           <div className="h-px w-12 bg-primary/40" />
           <p className="text-muted-foreground font-heading text-lg tracking-wide">
