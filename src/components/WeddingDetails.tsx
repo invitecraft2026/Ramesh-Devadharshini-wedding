@@ -5,7 +5,7 @@ const events = [
   {
     title: "Haldi & Mehendi",
     date: "May 23, 2026",
-    time: "—",
+    time: "4:00 PM - 6:00 PM",
     venue: "Bride's House",
     icon: Sparkles,
   },
